@@ -29,7 +29,7 @@ mamba
 
 ### 20220901
 
-- First day of Git training (Key to use:  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 )
+- First day of Git training
 - Learned about cloning, committing, pushing, and some markdown
 
 To make a file for Git use
@@ -66,3 +66,6 @@ Created new file
 nano name.md
 ```
 To save nano file
+```
+control X y ENTERR
+```
