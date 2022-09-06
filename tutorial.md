@@ -95,3 +95,7 @@ First Header | Second Header | Third Header
 Content of cell 1 | Content of cell 2 | Content of cell 3
 Content of column 1 | Content of column 2 | Content of column 3
 
+### EMOJI
+
+:apple:
+:puppy:
