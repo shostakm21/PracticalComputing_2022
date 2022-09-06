@@ -52,7 +52,7 @@ Ordered
 
 ### IMAGES
 
-! [ECU Logo] (https://brand.ecu.edu/wp-content/pv-uploads/sites/168/2019/09/banner-1.jpg
+! [ECU Logo] (https://brand.ecu.edu/wp-content/pv-uploads/sites/168/2019/09/banner-1.jpg)
 
 ### LINKS
 
@@ -98,4 +98,4 @@ Content of column 1 | Content of column 2 | Content of column 3
 ### EMOJI
 
 :apple:
-:puppy:
+:dog:
