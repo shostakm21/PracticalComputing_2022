@@ -27,3 +27,26 @@ _The Way We Were_by G.A. Parker
 > and measured all from head to tail, \
 > and plotted on a log/log scale.
 
+###LISTS
+
+Unordered:
+* Item 1
+* Item 2
+	* Item 2a
+	* Item 2b
+
+Ordered
+1. Item 1
+2. Item 2
+3. Item 3
+	* Item 3a
+	* Item 3b
+
+###BULLET POINTS
+
+- Point 1
+- Point 2
+- Point 3
+	* Point 3a
+	* Point 3b
+
