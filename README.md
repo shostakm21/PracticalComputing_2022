@@ -29,7 +29,7 @@ mamba
 
 ### 20220901
 
-- First day of Git training (Key to use ..)
+- First day of Git training (Key to use:  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 )
 - Learned about cloning, committing, pushing, and some markdown
 
 To make a file for Git use
