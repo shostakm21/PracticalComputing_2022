@@ -1,8 +1,8 @@
-#MARKDOWN
-##Symbol Coding Language
-###20220906
+# MARKDOWN
+## Symbol Coding Language
+### 20220906
 
-####EMPHASIS
+#### EMPHASIS
 *This text will be italicized*
 
 _this text will also be italicized_
@@ -15,7 +15,7 @@ You can also combine them:
 _This **is** combined_
 
 
-###BLOCKQUOTES
+### BLOCKQUOTES
 _The Way We Were_by G.A. Parker
 
 > A sweet and friendly porcupine, \
@@ -27,7 +27,7 @@ _The Way We Were_by G.A. Parker
 > and measured all from head to tail, \
 > and plotted on a log/log scale.
 
-###LISTS
+### LISTS
 
 Unordered:
 * Item 1
@@ -42,7 +42,7 @@ Ordered
 	* Item 3a
 	* Item 3b
 
-###BULLET POINTS
+### BULLET POINTS
 
 - Point 1
 - Point 2
@@ -50,3 +50,11 @@ Ordered
 	* Point 3a
 	* Point 3b
 
+### IMAGES
+
+! [ECU Logo] (https://brand.ecu.edu/wp-content/pv-uploads/sites/168/2019/09/banner-1.jpg
+
+### LINKS
+
+https://brewerlab.net - automatic
+[Brewer Lab] (https://brewerlab.net)
