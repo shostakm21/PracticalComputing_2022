@@ -56,5 +56,28 @@ Ordered
 
 ### LINKS
 
-https://brewerlab.net - automatic
-[Brewer Lab] (https://brewerlab.net)
+[Field Lab] (http://www.efieldlab.com)
+
+### BACKSLASH/ESCAPE CHARACTERS
+
+\*Literal asterisks\*
+
+### FENCE CODE BLOCKS
+
+Useful for keeping track of commands you are using
+
+Generic example:
+```
+echo "Hello World!"
+```
+
+Python example:
+```python
+print("Hellow World!")
+```
+
+R example:
+```r
+X <-4^2
+```
+
