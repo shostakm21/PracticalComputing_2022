@@ -81,3 +81,9 @@ R example:
 X <-4^2
 ```
 
+### TASK LIST
+
+- [] this is an incomplete item
+- [x] this is a complete item
+- [x] @mentions, #references, [links](http://www.efieldlab.com), **formatting**, and <del>tags</del/> supported>
+- [x] list syntax required (any unordered or ordered list supported)
