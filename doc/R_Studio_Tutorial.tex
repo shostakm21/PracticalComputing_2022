@@ -1,0 +1,1038 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={R\_Studio\_Tutorial},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{R\_Studio\_Tutorial}
+\author{}
+\date{\vspace{-2.5em}}
+
+\begin{document}
+\maketitle
+
+\hypertarget{r-basics}{%
+\section{R Basics}\label{r-basics}}
+
+\hypertarget{introduction}{%
+\subsection{Introduction}\label{introduction}}
+
+\hypertarget{r-calculator}{%
+\subsubsection{R Calculator}\label{r-calculator}}
+
+Basic calculations:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{1}\SpecialCharTok{+}\DecValTok{100}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 101
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{2}\SpecialCharTok{\^{}}\DecValTok{2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 4
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{7}\SpecialCharTok{/}\DecValTok{2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 3.5
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{10{-}2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 8
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{2}\SpecialCharTok{*}\DecValTok{2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 4
+\end{verbatim}
+
+Order of operations matter: PEMDAS
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{3}\SpecialCharTok{+}\DecValTok{5}\SpecialCharTok{*}\DecValTok{2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 13
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{(}\DecValTok{3}\SpecialCharTok{+}\DecValTok{5}\NormalTok{)}\SpecialCharTok{*}\DecValTok{2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 16
+\end{verbatim}
+
+Using scientific notation:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FloatTok{2e2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 200
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{2}\SpecialCharTok{/}\DecValTok{10000}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 2e-04
+\end{verbatim}
+
+Can also use trigometric functions:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{log}\NormalTok{(}\DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{exp}\NormalTok{(}\DecValTok{0}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1
+\end{verbatim}
+
+You can also ask questions: T/F Statements
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{1} \SpecialCharTok{==} \DecValTok{1}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] TRUE
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{1} \SpecialCharTok{\textgreater{}=}\DecValTok{1}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] TRUE
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{1} \SpecialCharTok{\textless{}} \DecValTok{1}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] FALSE
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{1} \SpecialCharTok{!=} \DecValTok{2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] TRUE
+\end{verbatim}
+
+You can define objects/variables:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x }\OtherTok{\textless{}{-}} \DecValTok{10}
+\NormalTok{x}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 10
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x}\SpecialCharTok{+}\NormalTok{x}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 20
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{y }\OtherTok{\textless{}{-}}\NormalTok{ x}\SpecialCharTok{+}\NormalTok{x}
+\NormalTok{y}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 20
+\end{verbatim}
+
+\hypertarget{vectorization}{%
+\subsubsection{Vectorization}\label{vectorization}}
+
+Use the colon \emph{:} to make a list:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{1}\SpecialCharTok{:}\DecValTok{5}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1 2 3 4 5
+\end{verbatim}
+
+Conducting operations on vectors:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{2}\SpecialCharTok{\^{}}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{5}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1]  2  4  8 16 32
+\end{verbatim}
+
+Storing vector as an object:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{v }\OtherTok{\textless{}{-}} \DecValTok{1}\SpecialCharTok{:}\DecValTok{5}
+\DecValTok{2}\SpecialCharTok{\^{}}\NormalTok{v}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1]  2  4  8 16 32
+\end{verbatim}
+
+Log transformations:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{log10}\NormalTok{(v)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.0000000 0.3010300 0.4771213 0.6020600 0.6989700
+\end{verbatim}
+
+\hypertarget{environment}{%
+\subsubsection{Environment}\label{environment}}
+
+To see what is in current environment us \emph{ls()} command:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ls}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "v" "x" "y"
+\end{verbatim}
+
+To remove items from environment, use \emph{rm()} command:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{rm}\NormalTok{(x)}
+\FunctionTok{ls}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "v" "y"
+\end{verbatim}
+
+\hypertarget{package-management}{%
+\subsection{Package Management}\label{package-management}}
+
+To see what is already present, use command:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{installed.packages}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##            Package     
+## base       "base"      
+## base64enc  "base64enc" 
+## boot       "boot"      
+## bslib      "bslib"     
+## cachem     "cachem"    
+## class      "class"     
+## cluster    "cluster"   
+## codetools  "codetools" 
+## compiler   "compiler"  
+## datasets   "datasets"  
+## digest     "digest"    
+## evaluate   "evaluate"  
+## fastmap    "fastmap"   
+## foreign    "foreign"   
+## fs         "fs"        
+## glue       "glue"      
+## graphics   "graphics"  
+## grDevices  "grDevices" 
+## grid       "grid"      
+## highr      "highr"     
+## htmltools  "htmltools" 
+## jquerylib  "jquerylib" 
+## jsonlite   "jsonlite"  
+## KernSmooth "KernSmooth"
+## knitr      "knitr"     
+## lattice    "lattice"   
+## magrittr   "magrittr"  
+## markdown   "markdown"  
+## MASS       "MASS"      
+## Matrix     "Matrix"    
+## memoise    "memoise"   
+## methods    "methods"   
+## mgcv       "mgcv"      
+## mime       "mime"      
+## nlme       "nlme"      
+## nnet       "nnet"      
+## parallel   "parallel"  
+## permute    "permute"   
+## R6         "R6"        
+## rappdirs   "rappdirs"  
+## rlang      "rlang"     
+## rmarkdown  "rmarkdown" 
+## rpart      "rpart"     
+## sass       "sass"      
+## spatial    "spatial"   
+## splines    "splines"   
+## stats      "stats"     
+## stats4     "stats4"    
+## stringi    "stringi"   
+## stringr    "stringr"   
+## survival   "survival"  
+## tcltk      "tcltk"     
+## tinytex    "tinytex"   
+## tools      "tools"     
+## utils      "utils"     
+## vegan      "vegan"     
+## xfun       "xfun"      
+## yaml       "yaml"      
+##            LibPath                                                         
+## base       "/Library/Frameworks/R.framework/Versions/4.2/Resources/library"
+## base64enc  "/Library/Frameworks/R.framework/Versions/4.2/Resources/library"
+## boot       "/Library/Frameworks/R.framework/Versions/4.2/Resources/library"
+## bslib      "/Library/Frameworks/R.framework/Versions/4.2/Resources/library"
+## cachem     "/Library/Frameworks/R.framework/Versions/4.2/Resources/library"
+## class      "/Library/Frameworks/R.framework/Versions/4.2/Resources/library"
+## cluster    "/Library/Frameworks/R.framework/Versions/4.2/Resources/library"
+## codetools  "/Library/Frameworks/R.framework/Versions/4.2/Resources/library"
+## compiler   "/Library/Frameworks/R.framework/Versions/4.2/Resources/library"
+## datasets   "/Library/Frameworks/R.framework/Versions/4.2/Resources/library"
+## digest     "/Library/Frameworks/R.framework/Versions/4.2/Resources/library"
+## evaluate   "/Library/Frameworks/R.framework/Versions/4.2/Resources/library"
+## fastmap    "/Library/Frameworks/R.framework/Versions/4.2/Resources/library"
+## foreign    "/Library/Frameworks/R.framework/Versions/4.2/Resources/library"
+## fs         "/Library/Frameworks/R.framework/Versions/4.2/Resources/library"
+## glue       "/Library/Frameworks/R.framework/Versions/4.2/Resources/library"
+## graphics   "/Library/Frameworks/R.framework/Versions/4.2/Resources/library"
+## grDevices  "/Library/Frameworks/R.framework/Versions/4.2/Resources/library"
+## grid       "/Library/Frameworks/R.framework/Versions/4.2/Resources/library"
+## highr      "/Library/Frameworks/R.framework/Versions/4.2/Resources/library"
+## htmltools  "/Library/Frameworks/R.framework/Versions/4.2/Resources/library"
+## jquerylib  "/Library/Frameworks/R.framework/Versions/4.2/Resources/library"
+## jsonlite   "/Library/Frameworks/R.framework/Versions/4.2/Resources/library"
+## KernSmooth "/Library/Frameworks/R.framework/Versions/4.2/Resources/library"
+## knitr      "/Library/Frameworks/R.framework/Versions/4.2/Resources/library"
+## lattice    "/Library/Frameworks/R.framework/Versions/4.2/Resources/library"
+## magrittr   "/Library/Frameworks/R.framework/Versions/4.2/Resources/library"
+## markdown   "/Library/Frameworks/R.framework/Versions/4.2/Resources/library"
+## MASS       "/Library/Frameworks/R.framework/Versions/4.2/Resources/library"
+## Matrix     "/Library/Frameworks/R.framework/Versions/4.2/Resources/library"
+## memoise    "/Library/Frameworks/R.framework/Versions/4.2/Resources/library"
+## methods    "/Library/Frameworks/R.framework/Versions/4.2/Resources/library"
+## mgcv       "/Library/Frameworks/R.framework/Versions/4.2/Resources/library"
+## mime       "/Library/Frameworks/R.framework/Versions/4.2/Resources/library"
+## nlme       "/Library/Frameworks/R.framework/Versions/4.2/Resources/library"
+## nnet       "/Library/Frameworks/R.framework/Versions/4.2/Resources/library"
+## parallel   "/Library/Frameworks/R.framework/Versions/4.2/Resources/library"
+## permute    "/Library/Frameworks/R.framework/Versions/4.2/Resources/library"
+## R6         "/Library/Frameworks/R.framework/Versions/4.2/Resources/library"
+## rappdirs   "/Library/Frameworks/R.framework/Versions/4.2/Resources/library"
+## rlang      "/Library/Frameworks/R.framework/Versions/4.2/Resources/library"
+## rmarkdown  "/Library/Frameworks/R.framework/Versions/4.2/Resources/library"
+## rpart      "/Library/Frameworks/R.framework/Versions/4.2/Resources/library"
+## sass       "/Library/Frameworks/R.framework/Versions/4.2/Resources/library"
+## spatial    "/Library/Frameworks/R.framework/Versions/4.2/Resources/library"
+## splines    "/Library/Frameworks/R.framework/Versions/4.2/Resources/library"
+## stats      "/Library/Frameworks/R.framework/Versions/4.2/Resources/library"
+## stats4     "/Library/Frameworks/R.framework/Versions/4.2/Resources/library"
+## stringi    "/Library/Frameworks/R.framework/Versions/4.2/Resources/library"
+## stringr    "/Library/Frameworks/R.framework/Versions/4.2/Resources/library"
+## survival   "/Library/Frameworks/R.framework/Versions/4.2/Resources/library"
+## tcltk      "/Library/Frameworks/R.framework/Versions/4.2/Resources/library"
+## tinytex    "/Library/Frameworks/R.framework/Versions/4.2/Resources/library"
+## tools      "/Library/Frameworks/R.framework/Versions/4.2/Resources/library"
+## utils      "/Library/Frameworks/R.framework/Versions/4.2/Resources/library"
+## vegan      "/Library/Frameworks/R.framework/Versions/4.2/Resources/library"
+## xfun       "/Library/Frameworks/R.framework/Versions/4.2/Resources/library"
+## yaml       "/Library/Frameworks/R.framework/Versions/4.2/Resources/library"
+##            Version   Priority     
+## base       "4.2.1"   "base"       
+## base64enc  "0.1-3"   NA           
+## boot       "1.3-28"  "recommended"
+## bslib      "0.4.0"   NA           
+## cachem     "1.0.6"   NA           
+## class      "7.3-20"  "recommended"
+## cluster    "2.1.3"   "recommended"
+## codetools  "0.2-18"  "recommended"
+## compiler   "4.2.1"   "base"       
+## datasets   "4.2.1"   "base"       
+## digest     "0.6.29"  NA           
+## evaluate   "0.16"    NA           
+## fastmap    "1.1.0"   NA           
+## foreign    "0.8-82"  "recommended"
+## fs         "1.5.2"   NA           
+## glue       "1.6.2"   NA           
+## graphics   "4.2.1"   "base"       
+## grDevices  "4.2.1"   "base"       
+## grid       "4.2.1"   "base"       
+## highr      "0.9"     NA           
+## htmltools  "0.5.3"   NA           
+## jquerylib  "0.1.4"   NA           
+## jsonlite   "1.8.0"   NA           
+## KernSmooth "2.23-20" "recommended"
+## knitr      "1.40"    NA           
+## lattice    "0.20-45" "recommended"
+## magrittr   "2.0.3"   NA           
+## markdown   "1.1"     NA           
+## MASS       "7.3-57"  "recommended"
+## Matrix     "1.4-1"   "recommended"
+## memoise    "2.0.1"   NA           
+## methods    "4.2.1"   "base"       
+## mgcv       "1.8-40"  "recommended"
+## mime       "0.12"    NA           
+## nlme       "3.1-157" "recommended"
+## nnet       "7.3-17"  "recommended"
+## parallel   "4.2.1"   "base"       
+## permute    "0.9-7"   NA           
+## R6         "2.5.1"   NA           
+## rappdirs   "0.3.3"   NA           
+## rlang      "1.0.6"   NA           
+## rmarkdown  "2.16"    NA           
+## rpart      "4.1.16"  "recommended"
+## sass       "0.4.2"   NA           
+## spatial    "7.3-15"  "recommended"
+## splines    "4.2.1"   "base"       
+## stats      "4.2.1"   "base"       
+## stats4     "4.2.1"   "base"       
+## stringi    "1.7.8"   NA           
+## stringr    "1.4.1"   NA           
+## survival   "3.3-1"   "recommended"
+## tcltk      "4.2.1"   "base"       
+## tinytex    "0.42"    NA           
+## tools      "4.2.1"   "base"       
+## utils      "4.2.1"   "base"       
+## vegan      "2.6-2"   NA           
+## xfun       "0.33"    NA           
+## yaml       "2.3.5"   NA           
+##            Depends                                          
+## base       NA                                               
+## base64enc  "R (>= 2.9.0)"                                   
+## boot       "R (>= 3.0.0), graphics, stats"                  
+## bslib      "R (>= 2.10)"                                    
+## cachem     NA                                               
+## class      "R (>= 3.0.0), stats, utils"                     
+## cluster    "R (>= 3.5.0)"                                   
+## codetools  "R (>= 2.1)"                                     
+## compiler   NA                                               
+## datasets   NA                                               
+## digest     "R (>= 3.3.0)"                                   
+## evaluate   "R (>= 3.0.2)"                                   
+## fastmap    NA                                               
+## foreign    "R (>= 4.0.0)"                                   
+## fs         "R (>= 3.1)"                                     
+## glue       "R (>= 3.4)"                                     
+## graphics   NA                                               
+## grDevices  NA                                               
+## grid       NA                                               
+## highr      "R (>= 3.2.3)"                                   
+## htmltools  "R (>= 2.14.1)"                                  
+## jquerylib  NA                                               
+## jsonlite   "methods"                                        
+## KernSmooth "R (>= 2.5.0), stats"                            
+## knitr      "R (>= 3.3.0)"                                   
+## lattice    "R (>= 3.0.0)"                                   
+## magrittr   "R (>= 3.4.0)"                                   
+## markdown   "R (>= 2.11.1)"                                  
+## MASS       "R (>= 3.3.0), grDevices, graphics, stats, utils"
+## Matrix     "R (>= 3.5.0)"                                   
+## memoise    NA                                               
+## methods    NA                                               
+## mgcv       "R (>= 3.6.0), nlme (>= 3.1-64)"                 
+## mime       NA                                               
+## nlme       "R (>= 3.5.0)"                                   
+## nnet       "R (>= 3.0.0), stats, utils"                     
+## parallel   NA                                               
+## permute    "R (>= 2.14.0)"                                  
+## R6         "R (>= 3.0)"                                     
+## rappdirs   "R (>= 3.2)"                                     
+## rlang      "R (>= 3.4.0)"                                   
+## rmarkdown  "R (>= 3.0)"                                     
+## rpart      "R (>= 2.15.0), graphics, stats, grDevices"      
+## sass       NA                                               
+## spatial    "R (>= 3.0.0), graphics, stats, utils"           
+## splines    NA                                               
+## stats      NA                                               
+## stats4     NA                                               
+## stringi    "R (>= 3.1)"                                     
+## stringr    "R (>= 3.1)"                                     
+## survival   "R (>= 3.5.0)"                                   
+## tcltk      NA                                               
+## tinytex    NA                                               
+## tools      NA                                               
+## utils      NA                                               
+## vegan      "permute (>= 0.9-0), lattice, R (>= 3.4.0)"      
+## xfun       NA                                               
+## yaml       NA                                               
+##            Imports                                                                                                                                                                                                
+## base       NA                                                                                                                                                                                                     
+## base64enc  NA                                                                                                                                                                                                     
+## boot       NA                                                                                                                                                                                                     
+## bslib      "grDevices, htmltools (>= 0.5.2), jsonlite, sass (>= 0.4.0),\njquerylib (>= 0.1.3), rlang, cachem, memoise"                                                                                            
+## cachem     "rlang, fastmap"                                                                                                                                                                                       
+## class      "MASS"                                                                                                                                                                                                 
+## cluster    "graphics, grDevices, stats, utils"                                                                                                                                                                    
+## codetools  NA                                                                                                                                                                                                     
+## compiler   NA                                                                                                                                                                                                     
+## datasets   NA                                                                                                                                                                                                     
+## digest     "utils"                                                                                                                                                                                                
+## evaluate   "methods"                                                                                                                                                                                              
+## fastmap    NA                                                                                                                                                                                                     
+## foreign    "methods, utils, stats"                                                                                                                                                                                
+## fs         "methods"                                                                                                                                                                                              
+## glue       "methods"                                                                                                                                                                                              
+## graphics   "grDevices"                                                                                                                                                                                            
+## grDevices  NA                                                                                                                                                                                                     
+## grid       "grDevices, utils"                                                                                                                                                                                     
+## highr      "xfun (>= 0.18)"                                                                                                                                                                                       
+## htmltools  "utils, digest, grDevices, base64enc, rlang (>= 0.4.10),\nfastmap (>= 1.1.0)"                                                                                                                          
+## jquerylib  "htmltools"                                                                                                                                                                                            
+## jsonlite   NA                                                                                                                                                                                                     
+## KernSmooth NA                                                                                                                                                                                                     
+## knitr      "evaluate (>= 0.15), highr, methods, stringr (>= 0.6), yaml (>=\n2.1.19), xfun (>= 0.29), tools"                                                                                                       
+## lattice    "grid, grDevices, graphics, stats, utils"                                                                                                                                                              
+## magrittr   NA                                                                                                                                                                                                     
+## markdown   "utils, xfun, mime (>= 0.3)"                                                                                                                                                                           
+## MASS       "methods"                                                                                                                                                                                              
+## Matrix     "methods, graphics, grid, stats, utils, lattice"                                                                                                                                                       
+## memoise    "rlang (>= 0.4.10), cachem"                                                                                                                                                                            
+## methods    "utils, stats"                                                                                                                                                                                         
+## mgcv       "methods, stats, graphics, Matrix, splines, utils"                                                                                                                                                     
+## mime       "tools"                                                                                                                                                                                                
+## nlme       "graphics, stats, utils, lattice"                                                                                                                                                                      
+## nnet       NA                                                                                                                                                                                                     
+## parallel   "tools, compiler"                                                                                                                                                                                      
+## permute    "stats"                                                                                                                                                                                                
+## R6         NA                                                                                                                                                                                                     
+## rappdirs   NA                                                                                                                                                                                                     
+## rlang      "utils"                                                                                                                                                                                                
+## rmarkdown  "bslib (>= 0.2.5.1), evaluate (>= 0.13), htmltools (>= 0.5.1),\njquerylib, jsonlite, knitr (>= 1.22), methods, stringr (>=\n1.2.0), tinytex (>= 0.31), tools, utils, xfun (>= 0.30), yaml\n(>= 2.1.19)"
+## rpart      NA                                                                                                                                                                                                     
+## sass       "fs, rlang (>= 0.4.10), htmltools (>= 0.5.1), R6, rappdirs"                                                                                                                                            
+## spatial    NA                                                                                                                                                                                                     
+## splines    "graphics, stats"                                                                                                                                                                                      
+## stats      "utils, grDevices, graphics"                                                                                                                                                                           
+## stats4     "graphics, methods, stats"                                                                                                                                                                             
+## stringi    "tools, utils, stats"                                                                                                                                                                                  
+## stringr    "glue (>= 1.2.0), magrittr, stringi (>= 1.1.7)"                                                                                                                                                        
+## survival   "graphics, Matrix, methods, splines, stats, utils"                                                                                                                                                     
+## tcltk      "utils"                                                                                                                                                                                                
+## tinytex    "xfun (>= 0.29)"                                                                                                                                                                                       
+## tools      NA                                                                                                                                                                                                     
+## utils      NA                                                                                                                                                                                                     
+## vegan      "MASS, cluster, mgcv"                                                                                                                                                                                  
+## xfun       "stats, tools"                                                                                                                                                                                         
+## yaml       NA                                                                                                                                                                                                     
+##            LinkingTo
+## base       NA       
+## base64enc  NA       
+## boot       NA       
+## bslib      NA       
+## cachem     NA       
+## class      NA       
+## cluster    NA       
+## codetools  NA       
+## compiler   NA       
+## datasets   NA       
+## digest     NA       
+## evaluate   NA       
+## fastmap    NA       
+## foreign    NA       
+## fs         NA       
+## glue       NA       
+## graphics   NA       
+## grDevices  NA       
+## grid       NA       
+## highr      NA       
+## htmltools  NA       
+## jquerylib  NA       
+## jsonlite   NA       
+## KernSmooth NA       
+## knitr      NA       
+## lattice    NA       
+## magrittr   NA       
+## markdown   NA       
+## MASS       NA       
+## Matrix     NA       
+## memoise    NA       
+## methods    NA       
+## mgcv       NA       
+## mime       NA       
+## nlme       NA       
+## nnet       NA       
+## parallel   NA       
+## permute    NA       
+## R6         NA       
+## rappdirs   NA       
+## rlang      NA       
+## rmarkdown  NA       
+## rpart      NA       
+## sass       NA       
+## spatial    NA       
+## splines    NA       
+## stats      NA       
+## stats4     NA       
+## stringi    NA       
+## stringr    NA       
+## survival   NA       
+## tcltk      NA       
+## tinytex    NA       
+## tools      NA       
+## utils      NA       
+## vegan      NA       
+## xfun       NA       
+## yaml       NA       
+##            Suggests                                                                                                                                                                                                                                                                                                                                           
+## base       "methods"                                                                                                                                                                                                                                                                                                                                          
+## base64enc  NA                                                                                                                                                                                                                                                                                                                                                 
+## boot       "MASS, survival"                                                                                                                                                                                                                                                                                                                                   
+## bslib      "shiny (>= 1.6.0), rmarkdown (>= 2.7), thematic, knitr,\ntestthat, withr, rappdirs, curl, magrittr"                                                                                                                                                                                                                                                
+## cachem     "testthat"                                                                                                                                                                                                                                                                                                                                         
+## class      NA                                                                                                                                                                                                                                                                                                                                                 
+## cluster    "MASS, Matrix"                                                                                                                                                                                                                                                                                                                                     
+## codetools  NA                                                                                                                                                                                                                                                                                                                                                 
+## compiler   NA                                                                                                                                                                                                                                                                                                                                                 
+## datasets   NA                                                                                                                                                                                                                                                                                                                                                 
+## digest     "tinytest, simplermarkdown"                                                                                                                                                                                                                                                                                                                        
+## evaluate   "covr, ggplot2, lattice, testthat"                                                                                                                                                                                                                                                                                                                 
+## fastmap    "testthat (>= 2.1.1)"                                                                                                                                                                                                                                                                                                                              
+## foreign    NA                                                                                                                                                                                                                                                                                                                                                 
+## fs         "testthat, covr, pillar (>= 1.0.0), tibble (>= 1.1.0), crayon,\nrmarkdown, knitr, withr, spelling, vctrs (>= 0.3.0)"                                                                                                                                                                                                                               
+## glue       "covr, crayon, DBI, dplyr, forcats, ggplot2, knitr, magrittr,\nmicrobenchmark, R.utils, rmarkdown, rprintf, RSQLite, stringr,\ntestthat (>= 3.0.0), vctrs (>= 0.3.0), waldo (>= 0.3.0), withr"                                                                                                                                                     
+## graphics   NA                                                                                                                                                                                                                                                                                                                                                 
+## grDevices  "KernSmooth"                                                                                                                                                                                                                                                                                                                                       
+## grid       NA                                                                                                                                                                                                                                                                                                                                                 
+## highr      "knitr, markdown, testit"                                                                                                                                                                                                                                                                                                                          
+## htmltools  "markdown, testthat, withr, Cairo, ragg, shiny"                                                                                                                                                                                                                                                                                                    
+## jquerylib  "testthat"                                                                                                                                                                                                                                                                                                                                         
+## jsonlite   "httr, curl, vctrs, testthat, knitr, rmarkdown, R.rsp, sf"                                                                                                                                                                                                                                                                                         
+## KernSmooth "MASS, carData"                                                                                                                                                                                                                                                                                                                                    
+## knitr      "markdown, formatR, testit, digest, rgl (>= 0.95.1201),\ncodetools, rmarkdown, htmlwidgets (>= 0.7), webshot, tikzDevice\n(>= 0.10), tinytex, reticulate (>= 1.4), JuliaCall (>= 0.11.1),\nmagick, png, jpeg, gifski, xml2 (>= 1.2.0), httr, DBI (>=\n0.4-1), showtext, tibble, sass, bslib, ragg, gridSVG, styler\n(>= 1.2.0), targets (>= 0.6.0)"
+## lattice    "KernSmooth, MASS, latticeExtra"                                                                                                                                                                                                                                                                                                                   
+## magrittr   "covr, knitr, rlang, rmarkdown, testthat"                                                                                                                                                                                                                                                                                                          
+## markdown   "knitr, RCurl"                                                                                                                                                                                                                                                                                                                                     
+## MASS       "lattice, nlme, nnet, survival"                                                                                                                                                                                                                                                                                                                    
+## Matrix     "expm, MASS"                                                                                                                                                                                                                                                                                                                                       
+## memoise    "digest, aws.s3, covr, googleAuthR, googleCloudStorageR, httr,\ntestthat"                                                                                                                                                                                                                                                                          
+## methods    "codetools"                                                                                                                                                                                                                                                                                                                                        
+## mgcv       "parallel, survival, MASS"                                                                                                                                                                                                                                                                                                                         
+## mime       NA                                                                                                                                                                                                                                                                                                                                                 
+## nlme       "Hmisc, MASS, SASmixed"                                                                                                                                                                                                                                                                                                                            
+## nnet       "MASS"                                                                                                                                                                                                                                                                                                                                             
+## parallel   "methods"                                                                                                                                                                                                                                                                                                                                          
+## permute    "vegan (>= 2.0-0), testthat (>= 0.5), parallel, knitr,\nrmarkdown, bookdown, sessioninfo"                                                                                                                                                                                                                                                          
+## R6         "testthat, pryr"                                                                                                                                                                                                                                                                                                                                   
+## rappdirs   "roxygen2, testthat (>= 3.0.0), covr, withr"                                                                                                                                                                                                                                                                                                       
+## rlang      "cli (>= 3.1.0), covr, crayon, fs, glue, knitr, magrittr,\nmethods, pillar, rmarkdown, stats, testthat (>= 3.0.0), tibble,\nusethis, vctrs (>= 0.2.3), withr"                                                                                                                                                                                      
+## rmarkdown  "digest, dygraphs, fs, rsconnect, downlit (>= 0.4.0), katex\n(>= 1.4.0), sass (>= 0.4.0), shiny (>= 1.6.0), testthat (>=\n3.0.3), tibble, tufte, vctrs, withr (>= 2.4.2)"                                                                                                                                                                          
+## rpart      "survival"                                                                                                                                                                                                                                                                                                                                         
+## sass       "testthat, knitr, rmarkdown, withr, shiny, curl"                                                                                                                                                                                                                                                                                                   
+## spatial    "MASS"                                                                                                                                                                                                                                                                                                                                             
+## splines    "Matrix, methods"                                                                                                                                                                                                                                                                                                                                  
+## stats      "MASS, Matrix, SuppDists, methods, stats4"                                                                                                                                                                                                                                                                                                         
+## stats4     NA                                                                                                                                                                                                                                                                                                                                                 
+## stringi    NA                                                                                                                                                                                                                                                                                                                                                 
+## stringr    "covr, htmltools, htmlwidgets, knitr, rmarkdown, testthat"                                                                                                                                                                                                                                                                                         
+## survival   NA                                                                                                                                                                                                                                                                                                                                                 
+## tcltk      NA                                                                                                                                                                                                                                                                                                                                                 
+## tinytex    "testit, rstudioapi"                                                                                                                                                                                                                                                                                                                               
+## tools      "codetools, methods, xml2, curl, commonmark, knitr, xfun, mathjaxr"                                                                                                                                                                                                                                                                                
+## utils      "methods, xml2, commonmark, knitr"                                                                                                                                                                                                                                                                                                                 
+## vegan      "parallel, tcltk, knitr, markdown"                                                                                                                                                                                                                                                                                                                 
+## xfun       "testit, parallel, codetools, rstudioapi, tinytex (>= 0.30),\nmime, markdown, knitr, htmltools, remotes, pak, rhub, renv,\ncurl, jsonlite, magick, rmarkdown"                                                                                                                                                                                      
+## yaml       "RUnit"                                                                                                                                                                                                                                                                                                                                            
+##            Enhances                                                             
+## base       NA                                                                   
+## base64enc  "png"                                                                
+## boot       NA                                                                   
+## bslib      NA                                                                   
+## cachem     NA                                                                   
+## class      NA                                                                   
+## cluster    NA                                                                   
+## codetools  NA                                                                   
+## compiler   NA                                                                   
+## datasets   NA                                                                   
+## digest     NA                                                                   
+## evaluate   NA                                                                   
+## fastmap    NA                                                                   
+## foreign    NA                                                                   
+## fs         NA                                                                   
+## glue       NA                                                                   
+## graphics   NA                                                                   
+## grDevices  NA                                                                   
+## grid       NA                                                                   
+## highr      NA                                                                   
+## htmltools  "knitr"                                                              
+## jquerylib  NA                                                                   
+## jsonlite   NA                                                                   
+## KernSmooth NA                                                                   
+## knitr      NA                                                                   
+## lattice    "chron"                                                              
+## magrittr   NA                                                                   
+## markdown   NA                                                                   
+## MASS       NA                                                                   
+## Matrix     "MatrixModels, graph, SparseM, sfsmisc, igraph, maptools, sp,\nspdep"
+## memoise    NA                                                                   
+## methods    NA                                                                   
+## mgcv       NA                                                                   
+## mime       NA                                                                   
+## nlme       NA                                                                   
+## nnet       NA                                                                   
+## parallel   "snow, nws, Rmpi"                                                    
+## permute    NA                                                                   
+## R6         NA                                                                   
+## rappdirs   NA                                                                   
+## rlang      "winch"                                                              
+## rmarkdown  NA                                                                   
+## rpart      NA                                                                   
+## sass       NA                                                                   
+## spatial    NA                                                                   
+## splines    NA                                                                   
+## stats      NA                                                                   
+## stats4     NA                                                                   
+## stringi    NA                                                                   
+## stringr    NA                                                                   
+## survival   NA                                                                   
+## tcltk      NA                                                                   
+## tinytex    NA                                                                   
+## tools      NA                                                                   
+## utils      NA                                                                   
+## vegan      NA                                                                   
+## xfun       NA                                                                   
+## yaml       NA                                                                   
+##            License                       License_is_FOSS License_restricts_use
+## base       "Part of R 4.2.1"             NA              NA                   
+## base64enc  "GPL-2 | GPL-3"               NA              NA                   
+## boot       "Unlimited"                   NA              NA                   
+## bslib      "MIT + file LICENSE"          NA              NA                   
+## cachem     "MIT + file LICENSE"          NA              NA                   
+## class      "GPL-2 | GPL-3"               NA              NA                   
+## cluster    "GPL (>= 2)"                  NA              NA                   
+## codetools  "GPL"                         NA              NA                   
+## compiler   "Part of R 4.2.1"             NA              NA                   
+## datasets   "Part of R 4.2.1"             NA              NA                   
+## digest     "GPL (>= 2)"                  NA              NA                   
+## evaluate   "MIT + file LICENSE"          NA              NA                   
+## fastmap    "MIT + file LICENSE"          NA              NA                   
+## foreign    "GPL (>= 2)"                  NA              NA                   
+## fs         "MIT + file LICENSE"          NA              NA                   
+## glue       "MIT + file LICENSE"          NA              NA                   
+## graphics   "Part of R 4.2.1"             NA              NA                   
+## grDevices  "Part of R 4.2.1"             NA              NA                   
+## grid       "Part of R 4.2.1"             NA              NA                   
+## highr      "GPL"                         NA              NA                   
+## htmltools  "GPL (>= 2)"                  NA              NA                   
+## jquerylib  "MIT + file LICENSE"          NA              NA                   
+## jsonlite   "MIT + file LICENSE"          NA              NA                   
+## KernSmooth "Unlimited"                   NA              NA                   
+## knitr      "GPL"                         NA              NA                   
+## lattice    "GPL (>= 2)"                  NA              NA                   
+## magrittr   "MIT + file LICENSE"          NA              NA                   
+## markdown   "GPL-2"                       NA              NA                   
+## MASS       "GPL-2 | GPL-3"               NA              NA                   
+## Matrix     "GPL (>= 2) | file LICENCE"   NA              NA                   
+## memoise    "MIT + file LICENSE"          NA              NA                   
+## methods    "Part of R 4.2.1"             NA              NA                   
+## mgcv       "GPL (>= 2)"                  NA              NA                   
+## mime       "GPL"                         NA              NA                   
+## nlme       "GPL (>= 2)"                  NA              NA                   
+## nnet       "GPL-2 | GPL-3"               NA              NA                   
+## parallel   "Part of R 4.2.1"             NA              NA                   
+## permute    "GPL-2"                       NA              NA                   
+## R6         "MIT + file LICENSE"          NA              NA                   
+## rappdirs   "MIT + file LICENSE"          NA              NA                   
+## rlang      "MIT + file LICENSE"          NA              NA                   
+## rmarkdown  "GPL-3"                       NA              NA                   
+## rpart      "GPL-2 | GPL-3"               NA              NA                   
+## sass       "MIT + file LICENSE"          NA              NA                   
+## spatial    "GPL-2 | GPL-3"               NA              NA                   
+## splines    "Part of R 4.2.1"             NA              NA                   
+## stats      "Part of R 4.2.1"             NA              NA                   
+## stats4     "Part of R 4.2.1"             NA              NA                   
+## stringi    "file LICENSE"                NA              NA                   
+## stringr    "GPL-2 | file LICENSE"        NA              NA                   
+## survival   "LGPL (>= 2)"                 NA              NA                   
+## tcltk      "Part of R 4.2.1"             NA              NA                   
+## tinytex    "MIT + file LICENSE"          NA              NA                   
+## tools      "Part of R 4.2.1"             NA              NA                   
+## utils      "Part of R 4.2.1"             NA              NA                   
+## vegan      "GPL-2"                       NA              NA                   
+## xfun       "MIT + file LICENSE"          NA              NA                   
+## yaml       "BSD_3_clause + file LICENSE" NA              NA                   
+##            OS_type MD5sum NeedsCompilation Built  
+## base       NA      NA     NA               "4.2.1"
+## base64enc  NA      NA     "yes"            "4.2.0"
+## boot       NA      NA     "no"             "4.2.1"
+## bslib      NA      NA     "no"             "4.2.0"
+## cachem     NA      NA     "yes"            "4.2.0"
+## class      NA      NA     "yes"            "4.2.1"
+## cluster    NA      NA     "yes"            "4.2.1"
+## codetools  NA      NA     "no"             "4.2.1"
+## compiler   NA      NA     NA               "4.2.1"
+## datasets   NA      NA     NA               "4.2.1"
+## digest     NA      NA     "yes"            "4.2.0"
+## evaluate   NA      NA     "no"             "4.2.0"
+## fastmap    NA      NA     "yes"            "4.2.0"
+## foreign    NA      NA     "yes"            "4.2.1"
+## fs         NA      NA     "yes"            "4.2.0"
+## glue       NA      NA     "yes"            "4.2.0"
+## graphics   NA      NA     "yes"            "4.2.1"
+## grDevices  NA      NA     "yes"            "4.2.1"
+## grid       NA      NA     "yes"            "4.2.1"
+## highr      NA      NA     "no"             "4.2.0"
+## htmltools  NA      NA     "yes"            "4.2.0"
+## jquerylib  NA      NA     "no"             "4.2.0"
+## jsonlite   NA      NA     "yes"            "4.2.0"
+## KernSmooth NA      NA     "yes"            "4.2.1"
+## knitr      NA      NA     "no"             "4.2.0"
+## lattice    NA      NA     "yes"            "4.2.1"
+## magrittr   NA      NA     "yes"            "4.2.0"
+## markdown   NA      NA     "yes"            "4.2.0"
+## MASS       NA      NA     "yes"            "4.2.1"
+## Matrix     NA      NA     "yes"            "4.2.1"
+## memoise    NA      NA     "no"             "4.2.0"
+## methods    NA      NA     "yes"            "4.2.1"
+## mgcv       NA      NA     "yes"            "4.2.1"
+## mime       NA      NA     "yes"            "4.2.0"
+## nlme       NA      NA     "yes"            "4.2.1"
+## nnet       NA      NA     "yes"            "4.2.1"
+## parallel   NA      NA     "yes"            "4.2.1"
+## permute    NA      NA     "no"             "4.2.0"
+## R6         NA      NA     "no"             "4.2.0"
+## rappdirs   NA      NA     "yes"            "4.2.0"
+## rlang      NA      NA     "yes"            "4.2.0"
+## rmarkdown  NA      NA     "no"             "4.2.1"
+## rpart      NA      NA     "yes"            "4.2.1"
+## sass       NA      NA     "yes"            "4.2.0"
+## spatial    NA      NA     "yes"            "4.2.1"
+## splines    NA      NA     "yes"            "4.2.1"
+## stats      NA      NA     "yes"            "4.2.1"
+## stats4     NA      NA     NA               "4.2.1"
+## stringi    NA      NA     "yes"            "4.2.0"
+## stringr    NA      NA     "no"             "4.2.0"
+## survival   NA      NA     "yes"            "4.2.1"
+## tcltk      NA      NA     "yes"            "4.2.1"
+## tinytex    NA      NA     "no"             "4.2.0"
+## tools      NA      NA     "yes"            "4.2.1"
+## utils      NA      NA     "yes"            "4.2.1"
+## vegan      NA      NA     "yes"            "4.2.0"
+## xfun       NA      NA     "yes"            "4.2.0"
+## yaml       NA      NA     "yes"            "4.2.0"
+\end{verbatim}
+
+To install a package, use:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#install.packages("vegan", dependencies=TRUE)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(vegan)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Loading required package: permute
+\end{verbatim}
+
+\begin{verbatim}
+## Loading required package: lattice
+\end{verbatim}
+
+\begin{verbatim}
+## This is vegan 2.6-2
+\end{verbatim}
+
+To remove a package, use:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{remove.packages}\NormalTok{(}\StringTok{"vegan"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Removing package from '/Library/Frameworks/R.framework/Versions/4.2/Resources/library'
+## (as 'lib' is unspecified)
+\end{verbatim}
+
+\end{document}

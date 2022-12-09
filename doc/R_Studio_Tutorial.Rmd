@@ -1,0 +1,1521 @@
+---
+title: "R_Studio_Tutorial"
+output:
+  html_notebook: default
+  pdf_document: default
+  html_document:
+    df_print: paged
+---
+# R Basics
+
+## Introduction
+
+To enter code use command+enter
+
+### R Calculator
+
+Basic calculations:
+```{r}
+1+100
+```
+
+```{r}
+2^2
+```
+
+```{r}
+7/2
+```
+```{r}
+10-2
+```
+
+```{r}
+2*2
+```
+
+Order of operations matter: PEMDAS
+```{r}
+3+5*2
+(3+5)*2
+```
+
+Using scientific notation:
+```{r}
+2e2
+2/10000
+```
+
+Can also use trigometric functions:
+```{r}
+log(1)
+exp(0)
+```
+
+
+You can also ask questions: T/F Statements
+```{r}
+1 == 1
+
+1 >=1
+
+1 < 1
+
+1 != 2
+```
+
+You can define objects/variables:
+```{r}
+x <- 10
+x
+x+x
+```
+
+```{r}
+y <- x+x
+y
+```
+
+### Vectorization
+
+Use the colon *:* to make a list:
+```{r}
+1:5
+```
+
+Conducting operations on vectors:
+```{r}
+2^(1:5)
+```
+
+Storing vector as an object:
+```{r}
+v <- 1:5
+2^v
+```
+
+Log transformations:
+```{r}
+log10(v)
+```
+
+### Environment
+
+To see what is in current environment us *ls()* command:
+```{r}
+ls()
+```
+
+To remove items from environment, use *rm()* command:
+```{r}
+rm(x)
+ls()
+```
+
+## Package Management
+
+To see what is already present, use command:
+```{r}
+installed.packages()
+```
+```{r}
+installed.packages("vegan", dependencies=TRUE)
+```
+
+## Project Management
+
+1. Set up management structure (i.e., "data", "src [source]", "results", "doc"). Basic folders you should have when doing data analysis.
+2. Avoiding redundancy of files
+3. Make sure to use version control (i.e., Git)
+
+## Getting Help
+If you don't know what a command does, just place a question mark (?) infront of the command:
+```{r}
+?plot
+```
+You can also use the help command:
+```{r}
+help()
+```
+You can even use it with symbols:
+```{r}
+#? <-
+```
+
+```{r}
+?"<-"
+```
+Can get vignette:
+```{r}
+vignette("FAQ-vegan")
+```
+To get citations:
+```{r}
+citation("vegan")
+```
+## Data and Their Formats
+
+data.frame makes a spreadsheet (like in python)
+```{r}
+cats <- data.frame(coat = c("calico", "black", "tabby"), weight = c(2.1,5,3.2), likes_string = c(1,0,1))
+```
+
+```{r}
+cats
+```
+```{r}
+getwd()
+```
+
+
+To create a new column, use cbind:
+```{r}
+logweight <- log(cats$weight)
+cbind(cats,logweight)
+```
+To print a string of text, use "paste" commmand:
+```{r}
+paste("My cat is ", cats$coat, ", and it weighs ", cats$weight, " kg.", sep = "")
+```
+
+### Data Types
+
+```{r}
+typeof(cats$coat)
+```
+```{r}
+typeof(cats$weight)
+```
+ A  double represent a numver with decimal places
+ 
+```{r}
+typeof(cats$likes_string)
+```
+ 
+```{r}
+typeof(3.14159)
+```
+
+```{r}
+typeof(1i)
+```
+
+You can use "TRUE" & "FALSE"
+```{r}
+typeof(TRUE)
+typeof(T)
+typeof(FALSE)
+typeof(F)
+```
+
+```{r}
+typeof(cats)
+```
+
+```{r}
+class(cats)
+```
+
+To open a file use:
+```{r}
+file.show()
+```
+
+To make 1=TRUE & 0=FALSE
+```{r}
+cats$likes_string <- as.logical(cats$likes_string)
+typeof(cats$likes_string)
+```
+```{r}
+cats$likes_string
+```
+
+```{r}
+c("a", "b")
+ab <-c("a","b")
+ab
+```
+
+```{r}
+c(ab, "c")
+```
+
+```{r}
+c(ab, ab)
+```
+To get a range, just use a colon (:)
+```{r}
+1:10
+```
+
+You can also use seq(#):
+```{r}
+seq(10)
+```
+
+```{r}
+z <- seq(10)
+head(z, n=3)
+```
+```{r}
+length(z)
+class(z)
+typeof(z)
+```
+```{r}
+seq(1,100, by=5)
+```
+
+Gives you 1 to 100 in intervals of 5
+
+```{r}
+seq(70,100, by=5)
+```
+
+### Data Frames
+
+```{r}
+cats <- cbind(cats,logweight)
+cats
+```
+
+```{r}
+str(cats$coat)
+```
+
+```{r}
+str(cats$coat)
+```
+
+```{r}
+coats <- "tabby", "tortoiseshell" "tortoiseshell", "black", "tabby"
+coats
+```
+
+```{r}
+factor("coats")
+```
+
+```{r}
+categories <- factor(coats)
+class(coats)
+class(categories)
+```
+
+### Lists
+
+```{r}
+list_example <- list(title="Numbers", numbers=1:10, data=TRUE)
+list_example
+```
+```{r}
+another_list <- list(1,"a", TRUE, 1+1i)
+another_list
+```
+```{r}
+typeof(list_example)
+class(list_example)
+
+typeof(another_list)
+class(another_list)
+
+typeof(cats)
+class(cats)
+```
+
+To turrn lists -> data.frame
+```{r}
+data.frame(list_example)
+data.frame(another_list)
+```
+To subset lists, # after comma means look at colomuns, # before means look at row:
+```{r}
+cats
+```
+
+```{r}
+cats[,3]
+cats[3,]
+```
+
+```{r}
+cats[2:3,c(1,3)]
+```
+
+### Matrices
+
+Matrix: made for math, all numbers
+
+Data.frame/spreadsheet: can be quantitative or qualitative
+
+```{r}
+matrix_example <- matrix(0,ncol=5, nrow=3)
+matrix_example
+```
+
+```{r}
+class(matrix_example)
+```
+
+```{r}
+typeof(matrix_example)
+```
+
+```{r}
+str(matrix_example)
+```
+
+```{r}
+dim(matrix_example)
+```
+
+```{r}
+ncol(matrix_example)
+```
+
+```{r}
+nrow(matrix_example)
+```
+
+To turn a matrix into a spreadsheet
+```{r}
+class(data.frame(matrix_example))
+```
+
+To save as a data.frame
+```{r}
+df_example <- data.frame(matrix_example)
+df_example
+```
+
+### Subsetting
+Works with dataframes & matrices
+
+```{r}
+p <- c(2.3, 6.9, 4.0, 23, 1)
+p
+```
+
+TO apply names to vector use:
+```{r}
+names(p) <- c('a', 'b', 'c', 'd', 'e')
+p
+```
+
+```{r}
+p[1]
+```
+
+```{r}
+p[2:4]
+```
+
+```{r}
+p[c(1,5)]
+```
+
+```{r}
+p[c(1,1,1,3,4,5)]
+```
+
+To remove columns, use a (-)
+```{r}
+p[-3]
+```
+
+```{r}
+p[c(-1,-5)]
+```
+
+```{r}
+p[-(2:4)]
+```
+
+```{r}
+p[c('a','c')]
+```
+
+To say not equal to, use !=
+```{r}
+p[names(p) !='c']
+```
+
+### Factors
+
+```{r}
+f <- factor(c('a', 'b', 'c','d', 'e'))
+f
+```
+
+To do absolutely is equal to, use double ='s
+```{r}
+f[f == 'a']
+```
+
+```{r}
+f[1:3]
+```
+
+To see if the factor contains some option, use %in%
+```{r}
+f[f %in% c('b','c')]
+```
+
+```{r}
+f[-3]
+```
+
+```{r}
+f2 <- factor(c('a','a','b','c','c'))
+f2
+```
+
+```{r}
+f2[f2 == 'a']
+```
+
+```{r}
+f2 [f2 %in% c('a','c')]
+```
+
+### Matrices Resumed
+Setting the seed will make sure you get the same result everytime.
+```{r}
+set.seed(65)
+m <- matrix(rnorm(6*4), ncol=4, nrow=6)
+m
+```
+
+## Slicing Matrices
+For specific rows
+```{r}
+m[3:4, c(3,1)]
+```
+
+For specific columns
+```{r}
+m[,c(3,4)]
+```
+
+### Lists
+
+```{r}
+xlist <- list(a="BIOL48006220", b=seq(1,10, by = 0.5), data="Grades")
+xlist
+```
+
+by = 0.5 is step size/increment
+
+```{r}
+xlist[1:2]
+```
+
+
+```{r}
+xlist['a']
+```
+You can also subslice by using [[]] to represent just the value not the object
+```{r}
+xlist[['a']]
+```
+
+```{r}
+xlist['b']
+```
+
+```{r}
+xlist[['b']]
+```
+
+You can use a $ to represent what ever the values are:
+```{r}
+xlist$b
+```
+
+### Date Frames
+```{r}
+gp <- read.csv('/Users/maggieshostak/Desktop/Practical\ Computing/Class\ Examples/PracticalComputing_2022/data/forest_area_sq_km.csv')
+head(gp, n=10L)
+```
+```{r}
+head(gp[3], n=10L)
+```
+To determine how many rows
+```{r}
+nrow(gp)
+```
+
+```{r}
+head(gp["country"])
+```
+
+```{r}
+head(gp[["country"]], 10L)
+```
+
+```{r}
+gp$X1997
+```
+
+To just look at rows 1-3 & columns 2-5
+```{r}
+gp[1:3, 2:5]
+```
+To just look at columns 1 & 3 & 4 & 5
+```{r}
+gp[c(1,3), c(2,5)]
+```
+```{r}
+gp[ which(gp$X1989 <= 100 & gp$X2019 >= 100),]
+```
+
+### Conditionals & Flow
+To indent we use { then press enter to make conditional statement:
+```{r}
+n <- 10
+
+if (n<10) {
+  print("n is less than 10")
+} else if (n>10) {
+  print("n is more than 10")
+} else {
+  print("n is equal to 10")
+}
+```
+
+```{r}
+for (n in seq(1,20)) {
+  if (n<10) {
+    print("n is less than 10")
+  } else if (n>10) {
+    print("n is more than 10")
+  } else {
+    print("n is equal to 10")
+  }
+}
+```
+
+Paste is like the cat command:
+```{r}
+g <- 0
+
+while (g <=10) {
+  print(paste(g, "is less than or equal to 10"))
+  g <- g+1
+}
+```
+
+### Plotting & Figures
+
+```{r}
+#installed.packages('ggplot2')
+```
+
+```{r}
+library(ggplot2)
+```
+
+```{r}
+gp <- read.csv('/Users/maggieshostak/Desktop/Practical\ Computing/Class\ Examples/PracticalComputing_2022/data/gapminder_all.csv')
+
+head(gp)
+```
+```{r}
+ggplot(data=gp, mapping=aes(x=gdpPercap_1952, y=pop_1952)) + geom_point()
+```
+
+```{r}
+ggplot(data=gp, mapping=aes(x=gdpPercap_2002, y=pop_2002)) + geom_point()
+```
+
+```{r}
+gapminder <- read.csv("https://raw.githubusercontent.com/swcarpentry/r-novice-gapminder/gh-pages/_episodes_rmd/data/gapminder_data.csv")
+head(gapminder)
+```
+```{r}
+ggplot(data=gapminder, mapping=aes(x=gdpPercap, y=lifeExp)) + geom_point()
+```
+
+```{r}
+ggplot(data=gapminder, mapping=aes(x=year, y=lifeExp, by=country, color=continent)) + geom_line()
+```
+
+
+```{r}
+ggplot(data=gapminder, mapping=aes(x=year, y=lifeExp, by=country)) + geom_line(mapping=aes(color=continent)) + geom_point()
+```
+
+To transfer an exponential model, use the log10:
+```{r}
+ggplot(data=gapminder, mapping=aes(x=gdpPercap, y=lifeExp)) + geom_point() + scale_x_log10()
+```
+```{r}
+ggplot(data=gapminder, mapping=aes(x=gdpPercap, y=lifeExp)) + geom_point(alpha=0.5) + scale_x_log10()
+```
+
+```{r}
+ggplot(data=gapminder, mapping=aes(x=gdpPercap, y=lifeExp)) + geom_point(alpha=0.1) + scale_x_log10()
+```
+
+```{r}
+ggplot(data=gapminder, mapping=aes(x=gdpPercap, y=lifeExp)) + geom_point(alpha=0.25, color="purple", size=0.9, pch=15) + scale_x_log10() + geom_smooth(method=lm, color="gold", size=1.5)
+```
+
+
+```{r}
+Africas <- gapminder[gapminder$continent == "Africa", ]
+head(Africas)
+
+```
+
+Facet_wrap: tells you how you want to plot them independetly 
+```{r}
+ggplot(data=Africas, mapping=aes(x=year, y=lifeExp)) +
+  geom_line() +
+  facet_wrap(~ country)
+```
+
+```{r}
+ggplot(data=Africas, mapping=aes(x=year, y=lifeExp)) +
+  geom_line() +
+  facet_wrap(~ country) +
+  theme(axis.text.x = element_text(angle=90))
+```
+
+```{r}
+ggplot(data=Africas, mapping=aes(x=year, y=lifeExp)) +
+  geom_line(color="red") +
+  facet_wrap(~ country) +
+  theme(axis.text.x = element_text(angle=90)) +
+  labs(
+    x="Year",
+    Y="lifeExp",
+    Title="Life Exoectency Over Time in African Countries",
+  )
+```
+
+How to save a graph to make an output file:
+```{r}
+AfricanLifeExpectancy <- ggplot(data=Africas, mapping=aes(x=year, y=lifeExp)) +
+  geom_line(color="red") +
+  facet_wrap(~ country) +
+  theme(axis.text.x = element_text(angle=90)) +
+  labs(
+    x="Year",
+    Y="lifeExp",
+    Title="Life Expectency Over Time in African Countries",
+  )
+```
+
+```{r}
+ggsave(filename="data/AfricanLifeExpectancy.png", plot=AfricanLifeExpectancy, width=24, height=40, dpi=300, units="cm")
+```
+
+
+```{r}
+pdf(file="results/AfricanLifeExp.pdf", width=24, height=40)
+plot(AfricanLifeExpectancy)
+dev.off()
+```
+
+
+```{r}
+write.table(gapminder, file="data/gapminder_web.csv", sep=",")
+```
+
+```{r}
+write.csv(Africas, file="data/gapmminder_web_africas.csv")
+```
+
+### Fancy Plots
+
+```{r}
+#install.packages(c("ggridges", "viridis", "hrbrthemes", dependencies=T))
+```
+```{r}
+library(ggridges)
+library(ggplot2)
+library(viridis)
+library(hrbrthemes)
+```
+```{r}
+hrbrthemes::import_roboto_condensed()
+```
+
+..x.. makes it a gradient fill & smooth
+
+```{r}
+ggplot(lincoln_weather, aes(x=`Mean Temperature[F]`, y= `Month`, fill=..x..)) + geom_density_ridges_gradient(scale = 3, rel_min_height = 0.01) + scale_fill_viridis(name="temp. [F]", option = "A") + theme_ipsum() +
+  theme(
+    legend.position="none",
+    panel.spacing = unit(0.1, "lines"),
+    strip.text.x = element_text(size=8))
+```
+
+
+Themes dictate fonts
+
+Taking family and year described, use bin to make a hard/bar plot
+
+
+```{r}
+install.packages(c("ggstatsplot", "palmerpenguins", dependencies=T))
+```
+
+```{r}
+library(tidyverse)
+library(ggstatsplot)
+```
+
+```{r}
+data("penguins", package = "palmerpenguins")
+penguins
+```
+
+```{r}
+penguins2 <-  drop_na(penguins)
+penguins2
+```
+```{r}
+plt <- ggbetweenstats(
+  data = penguins,
+  x=species,
+  y=bill length)
+plt
+```
+
+```{r}
+gapminder2 <- drop_na(gapminder)
+```
+
+```{r}
+boxplot(gapminder2$lifeExp ~ gapminder2$continent)
+```
+Box plots don't show distribution, instead use a violin plot
+```{r}
+install.packages("vioplot", dependencies = T)
+```
+```{r}
+library(vioplot)
+```
+
+```{r}
+with(gapminder2, vioplot(
+  lifeExp~continent, col="orange"
+))
+```
+
+```{r}
+plt <- ggbetweenstats()
+```
+
+To save/export graph
+```{r}
+ggsave(
+  flename = "insert name",
+  plot = plt
+  width  = 8
+  height = 8
+  device = "png"
+)
+```
+ You can then load the stuff in InkScape to adjust the visual aesthetics
+
+## PCA Plots
+```{r}
+penguins2
+```
+For principle components, you need a matrix
+```{r}
+penguins_matrix <- with(penguins2, cbind(bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_g))
+penguins_matrix
+```
+
+```{r}
+penguin_pca <- princomp(penguins_matrix, cor = TRUE)
+summary(penguin_pca)
+```
+Component 1 represents # of dimensions you have (x-axis, y-axis, z-axis & 4th-axes) and it rotates/interactions it based on categories [this will change the axes]
+
+Individual Loadings
+```{r}
+loadings(penguin_pca)
+```
+
+```{r}
+biplot(penguin_pca, xlab=penguins2[,2])
+```
+
+
+```{r}
+levels(penguins2$species)
+```
+
+To get PCA scores
+```{r}
+penguin_pca$scores
+```
+
+*ADD LESSON STUFF FROM LAST CLASS*
+
+## Statistics
+
+### Additional Ways of Importing, Reading, and Manipulating Data
+
+
+Hard method:
+```{r}
+rand <- c(12, 54, 98, 65, 38)
+rand
+```
+
+To get cumulative sum:
+```{r}
+sum(rand)
+```
+
+```{r}
+length(rand)
+```
+
+To get the mean of your data:
+```{r}
+avg.rand <- (sum(rand)/length(rand))
+avg.rand
+```
+Another way to get the average:
+
+```{r}
+mean(rand)
+```
+
+To sort:
+```{r}
+sort(rand)
+```
+
+```{r}
+min(rand)
+```
+
+```{r}
+max(rand)
+```
+
+```{r}
+cumsum(rand)
+```
+
+To get differences:
+```{r}
+diff(rand)
+```
+
+Slicing/Indexing #'s out:
+```{r}
+rand[2]
+```
+
+Transforming #'s: adding, multiplying, etc
+
+Importing Data, Most Useful: Take a list of numbers, don't need to add comma's and just paste in data. Press 'enter' twice to finish adding data
+```{r}
+peds <- scan()
+peds
+```
+
+### Analyses
+
+#### Univariate Statistics
+
+##### 1. Categotical Data
+######  a. Barplots
+
+```{r}
+beer <- c(3, 4, 1, 1, 3, 4, 3, 3, 1, 3, 2, 1, 2, 1, 2, 3, 2, 3, 1, 1, 1, 1, 4, 3, 1)
+length(beer)
+```
+You cannot use "barplot(beer)" command right away. It will just show you every # in its own column
+
+```{r}
+table(beer)
+```
+
+```{r}
+barplot(table(beer))
+```
+This is just for counts/frequency:
+```{r}
+barplot(table(beer), xlab="Beer", ylab="Frequency")
+```
+For proportion:
+```{r}
+barplot(table(beer)/length(beer), xlab="Beer", ylab="Proportion")
+```
+###### b. Pie Charts
+```{r}
+pie(table(beer), main="Beer Preference By Students")
+```
+
+
+##### 2. Numerical Data
+
+###### a. Stem-and-Leaf Plots
+```{r}
+stem(peds)
+```
+
+###### b. Strip Chart
+```{r}
+stripchart(peds, method="stack")
+```
+
+##### 3. Measures of Center
+
+###### a. Mean
+```{r}
+mean(peds)
+```
+
+Using Columns in Data frame:
+```{r}
+mean(gapminder2$lifeExp)
+```
+
+###### b. Median
+```{r}
+median(peds)
+```
+
+```{r}
+median(gapminder2$lifeExp)
+```
+
+Must know exact column headers using the "with" command
+```{r}
+with(gapminder2, median(lifeExp))
+```
+
+###### c. Mode
+
+Frequency of measurement occurring:
+```{r}
+which(table(peds) == max(table(peds)))
+```
+
+##### 4. Variation/Spread
+
+###### a. Range
+```{r}
+range(peds)
+```
+
+Will give you a summary of the range:
+```{r}
+diff(range(peds))
+```
+
+###### b. Variance
+```{r}
+var(peds)
+```
+
+Standard Deviation: sqrt of variance
+```{r}
+sd(peds)
+```
+
+###### c. Inter-quartile Range (IQR)
+```{r}
+IQR(peds)
+```
+
+###### d. Z-Scores
+The number of standard deviations away from the mean
+```{r}
+scale(peds)
+```
+
+###### e. Summaries
+```{r}
+summary(peds)
+```
+
+##### 5. Plotting
+
+###### a. Histogram
+```{r}
+hist(peds)
+```
+Modify # of breaks:
+```{r}
+hist(peds, breaks=2)
+```
+
+
+```{r}
+hist(peds, breaks="scott")
+```
+
+```{r}
+hist(peds, breaks="scott", prob=TRUE) #To look at the densities
+```
+
+```{r}
+hist(peds, breaks="scott", prob=TRUE)
+lines(density(peds))
+```
+
+```{r}
+plot(density(peds))
+```
+
+##### b. Boxplots
+
+```{r}
+boxplot(peds)
+```
+
+#### Bivariate & Multivariate Statistics
+
+##### 1. Plotting & Regression
+
+###### a. Boxplotting
+```{r}
+spid.gen <- read.csv("/Users/maggieshostak/Downloads/spider_genitalia.csv", header = TRUE)
+spid.gen
+```
+```{r}
+boxplot(spid.gen) # This is a spreadsheet so it won't work
+```
+```{r}
+boxplot(spid.gen$left.bulb ~ spid.gen$habitat)
+```
+```{r}
+boxplot(spid.gen$left.bulb/spid.gen$carapace.length ~ spid.gen$habitat)
+```
+
+###### b. Scatterplots
+
+```{r}
+plot(spid.gen$left.bulb ~ spid.gen$right.bulb)
+```
+
+Changing plot characters using pch
+```{r}
+plot(spid.gen$left.bulb ~ spid.gen$right.bulb, pch = as.character(spid.gen$habitat))
+```
+
+###### c. Linear Regression
+
+To use a linear model, define general regression variable using lm():
+```{r}
+gen.reg <- lm(spid.gen$left.bulb ~ spid.gen$right.bulb)
+gen.reg
+```
+
+Using summary(gen.reg) will result in an ANOVA test:
+```{r}
+summary(gen.reg)
+```
+
+Using abline will give you your linear regression line into your plot:
+```{r}
+plot(spid.gen$left.bulb ~ spid.gen$right.bulb, pch = as.character(spid.gen$habitat))
+abline(gen.reg)
+```
+
+###### d. Correlation Coefficient & Spearman Rank Correlation
+
+Cor.gen will give you your R-value, to get R^2, use cor.gen^2:
+```{r}
+cor.gen <- with(spid.gen, cor(left.bulb, right.bulb))
+cor.gen
+cor.gen^2
+```
+
+```{r}
+spearman.cor.gen <- with(spid.gen, cor(left.bulb, right.bulb, method="spearman"))
+spearman.cor.gen^2
+```
+
+###### e. Residuals
+
+Residuals are the difference between a value and the line of best fit (LOBF)
+```{r}
+residuals(gen.reg)
+```
+
+###### f. Transformations
+
+```{r}
+plot(spid.gen$left.bulb^2~spid.gen$right.bulb^2)
+```
+
+```{r}
+plot(log10(spid.gen$left.bulb)~spid.gen$right.bulb)
+```
+```{r}
+log.left.bulb <- log10(spid.gen$left.bulb)
+```
+
+
+##### 2. Comparing Descrete Treatment Effects
+
+###### a. Chi-Squared Test
+
+```{r}
+obs <- c(4,15,6,15,18,2)
+exp <- c(0.16,0.17,0.16,0.17,0.17,0.17)
+chisq.test(obs, p=exp)
+```
+
+```{r}
+obs_weighted <- c(4,15,6,15,18,2)
+obs_fair <- c(10,10,10,10,10,10)
+exp <- c(0.16,0.17,0.16,0.17,0.17,0.17)
+```
+
+This will be significant:
+```{r}
+chisq.test(obs_weighted, p=exp)
+```
+
+This is not significant since p=value is 1:
+```{r}
+chisq.test(obs_fair, p=exp)
+```
+
+###### b. T-test
+
+Null hypothesis (H0):  true mean is equal to zero, but you can set true mean to other values with "mu="
+
+1 Sample T-Test: Student T-Test (2-Tail Test)
+```{r}
+t.test(spid.gen$carapace.length)
+```
+
+```{r}
+mean(spid.gen$carapace.length)
+```
+
+```{r}
+t.test(spid.gen$carapace.length, mu=29)
+```
+
+2 Sample T-Test:
+```{r}
+habitat.t2 <- t.test(spid.gen$carapace.length~spid.gen$habitat)
+habitat.t2
+```
+```{r}
+habitat.t2 <- t.test(spid.gen$left.bulb~spid.gen$habitat)
+habitat.t2
+```
+
+1 Sample Test: Is one less than the other? (1-Tailed)
+```{r}
+habitat.tless <- t.test(spid.gen$left.bulb, alternative = "less")
+habitat.tless
+```
+
+Conclusion: B is not less than A
+
+1 Sample Test: Is one greater than the other? (1-Tailed)
+```{r}
+habitat.tgreater <- t.test(spid.gen$left.bulb, alternative = "greater")
+habitat.tgreater
+```
+
+
+###### c. Analysis Of Variance (ANOVA)
+
+
+```{r}
+gen.lm <- lm(spid.gen$left.bulb~spid.gen$habitat)
+gen.lm
+```
+
+```{r}
+summary(gen.lm)
+```
+
+```{r}
+anova(gen.lm)
+```
+
+```{r}
+gen.anova <- aov(spid.gen$left.bulb~spid.gen$habitat)
+gen.anova
+```
+
+```{r}
+summary(gen.anova)
+```
+
+Note: You get the same output
+
+```{r}
+gapminder2.lifeexp.continent.anova <- aov(gapminder2$lifeExp~gapminder2$continent)
+summary(gapminder2.lifeexp.continent.anova)
+```
+
+Performing a Post Hoc Test: Tukey Test
+```{r}
+gapminder2.tukey.two.way <- TukeyHSD(gapminder2.lifeexp.continent.anova)
+gapminder2.tukey.two.way
+```
+
+###### d. Analysis of Covariance (ANCOVA)
+
+Supplying to model other factors that might explain the differences
+```{r}
+boxplot(spid.gen$left.bulb~spid.gen$habitat)
+```
+Use a covariate by adding *factor_you_want_to_control
+```{r}
+gen.ancova <- lm(spid.gen$left.bulb~spid.gen$habitat*spid.gen$carapace.length)
+summary(gen.ancova)
+```
+
+```{r}
+gapminder2.lifeexp.continent_GDP.ancova <- aov(gapminder2$lifeExp~gapminder2$continent+gapminder2$gdpPercap)
+summary(gapminder2.lifeexp.continent_GDP.ancova)
+```
+
+```{r}
+install.packages("multcomp")
+```
+```{r}
+library(multcomp)
+```
+
+```{r}
+#posthoc.gapminder2.ancova <- glht(gapminder2.lifeexp.continent_GDP.ancova, linfct=mcp(technique="Tukey")) (isn't working)
+```
+
+##### 3. Principle Component Analysis
+
+```{r}
+sp.matrix <- with(spid.gen, cbind(left.bulb, right.bulb, carapace.length, leg4.length))
+sp.matrix
+```
+```{r}
+sp.pca <- princomp(sp.matrix, cor=TRUE)
+summary(sp.pca)
+```
+
+```{r}
+loadings(sp.pca)
+```
+```{r}
+biplot(sp.pca)
+```
+```{r}
+install.packages("ggfortify", dependencies = TRUE)
+```
+
+```{r}
+sp.pca$scores
+```
+
+
+```{r}
+library(ggfortify)
+```
+
+```{r}
+sp.pca.plot <- autoplot(sp.pca,
+                        data=spid.gen,
+                        colour="habitat")
+sp.pca.plot
+```
+# Plot Cheatsheet
+```{r}
+plot(1:25, rep(0.25,25), pch=1:25, col=1:25, ylim=c(0,6), cex=2, ylab="Line types (lty) 1 to 6", xlab="Plotting character (pch) 1 to 25 and colours (col) 1 to 8", main="Line types (lty), plotting characters (pch),\nand colors (col) for plot and xyplot", lab=c(25,7,2))
+
+points(1:8, rep(0.5,8), pch=20, col=1:8, cex=4)
+
+abline(h=1:6, lty=1:6, lwd=5, col=1:8)
+```
+
+# Looping and Conditionals
+
+## A. If-Then Statements
+```{r}
+x <- 5
+if(x > 0){
+  print("Positive #")}
+```
+
+```{r}
+x <- -5
+if(x > 0){
+  print("Positive #")
+} else if (x < 0) {
+  print("Negative #")
+} else
+  print("Zero")
+```
+
+%% Represents division, and == means no remainder "if its true", "if its odd"
+
+```{r}
+a <- c(5,7,2,9)
+ifelse(a %% 2 == 0, "even", "odd")
+```
+
+## B. For Loops
+
+For each of these values in Z, divide them by 2, if they don't have a remainder, it will tell you how many even numbers
+```{r}
+z <- c(2,5,3,9,8,11,6)
+count <- 0
+
+for(val in z) {
+  if(val %% 2 == 0) count = count + 1
+}
+  print(count)
+```
+
+## C. While Statement
+
+```{r}
+i <- 1
+while (i < 5) {
+  print(i)
+  i = i +1
+}
+```
+
+## D. Interruptions
+
+Breaks the loop
+```{r}
+x <- 1:5
+for (val in x){
+  if (val == 3){
+    break
+  }
+  print(val)
+}
+```
+
+If print(val) is placed before the break, it will print the value 3, then break the loop
+```{r}
+x <- 1:5
+for (val in x){
+  if (val == 3){
+    print(val)
+    break
+  }
+  #print(val)
+}
+```
+
+```{r}
+x <- 1:5
+for (val in x){
+  print(val)
+  if (val == 3){
+    #print(val)
+    break
+  }
+  #print(val)
+}
+```
+
+If the value is equal to 3, it will skip that value and move onto the next one
+```{r}
+for (val in x){
+  if (val == 3) {
+    next
+  }
+  print(val)
+}
+```
+
+```{r}
+x <- 1
+repeat{
+  print(x)
+  x = x+1
+  if (x == 20) {
+    break
+  }
+}
+```
+# Randomization & Dataset Management (short)
+
+## A. Dataset Management
+
+```{r}
+matrix_B <- matrix(
+  c(2,4,3,1,5,7),
+  nrow=3,
+  ncol=2
+)
+
+matrix_B
+```
+
+Transforming Data
+```{r}
+t(matrix_B)
+```
+
+```{r}
+matrix_C <- matrix(
+  c(7,4,2),
+  nrow=3,
+  ncol=1
+)
+
+matrix_C
+```
+Putting the Matrices/Data.frame together
+```{r}
+matrix_BC <- cbind(matrix_B, matrix_C)
+matrix_BC
+```
+
+Deconstructing the Matrices
+```{r}
+c(matrix_BC)
+```
+
+## B. Randomizations
+Each tiime you run the script, you will get different numbers
+
+rnorm(# samples, average, variance as standard deviation)
+sample(what you want to sample, size of sample, replace = FALSE, prob = NULL)
+
+```{r}
+ndist <- rnorm(100, 50, 20)
+ndist 
+```
+```{r}
+hist(ndist)
+```
+
+
+```{r}
+sample(ndist, 10, replace = FALSE, prob = NULL)
+```
+
+### Sampling With & Without Replacement
+```{r}
+test <- 1:100
+test
+```
+
+No repeats:
+```{r}
+sort(sample(test, 50, replace = FALSE, prob = NULL))
+```
+
+Now you can have repeats:
+```{r}
+sort(sample(test, 50, replace = TRUE, prob = NULL))
+```
+
